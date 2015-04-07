@@ -1,0 +1,529 @@
+/*!
+ * Flat UI Free v2.2.2 (http://designmodo.github.io/Flat-UI/)
+ * Copyright 2013-2014 Designmodo, Inc.
+ */
+
+/* Prettyfy Theme */
+.prettyprint {
+  padding: 15px 21px;
+  font-family: Menlo, 'Bitstream Vera Sans Mono', 'DejaVu Sans Mono', Monaco, Consolas, monospace;
+  background-color: #f7f7f9;
+  border: 2px solid #e1e1e8;
+  }
+.pln {
+  color: #333;
+  }
+@media screen {
+  .str {
+    color: #d14;
+    }
+  .kwd {
+    color: #333;
+    }
+  .com {
+    color: #998;
+    }
+  .typ {
+    color: #458;
+    }
+  .lit {
+    color: #458;
+    }
+  .pun {
+    color: #333;
+    }
+  .opn {
+    color: #333;
+    }
+  .clo {
+    color: #333;
+    }
+  .tag {
+    color: navy;
+    }
+  .atn {
+    color: teal;
+    }
+  .atv {
+    color: #d14;
+    }
+  .dec {
+    color: #333;
+    }
+  .var {
+    color: teal;
+    }
+  .fun {
+    color: #900;
+    }
+  }
+@media print, projection {
+  .str {
+    color: #060;
+    }
+  .kwd {
+    font-weight: bold;
+    color: #006;
+    }
+  .com {
+    font-style: italic;
+    color: #600;
+    }
+  .typ {
+    font-weight: bold;
+    color: #404;
+    }
+  .lit {
+    color: #044;
+    }
+  .pun,
+  .opn,
+  .clo {
+    color: #440;
+    }
+  .tag {
+    font-weight: bold;
+    color: #006;
+    }
+  .atn {
+    color: #404;
+    }
+  .atv {
+    color: #060;
+    }
+  }
+/* Specify class=linenums on a pre to get line numbering */
+ol.linenums {
+  margin-top: 0;
+  margin-bottom: 0;
+  }
+.glucodyn-headline {
+  padding: 73px 0 110px;
+  text-align: center;
+  }
+.glucodyn-logo {
+  margin: 10px 0;
+  font: 600 54px "Helvetica Neue", Helvetica, Arial, sans-serif;
+  letter-spacing: -2px;
+  }
+.glucodyn-logo .logo {
+  width: 236px;
+  height: 181px;
+  margin: 0 auto 26px;
+  overflow: hidden;
+  text-indent: -9999em;
+  background: url(../img/demo/logo-mask.png) center 0 no-repeat;
+  background-size: 236px 181px;
+  }
+.glucodyn-logo small {
+  display: block;
+  padding-top: 5px;
+  font-size: 22px;
+  font-weight: 700;
+  color: rgba(52, 73, 94, .3);
+  letter-spacing: 0;
+  }
+.glucodyn-row {
+  margin-bottom: 20px;
+  }
+.glucodyn-row .glucodyn-heading-note,
+.glucodyn-row .glucodyn-text-note {
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  display: block;
+  width: 260px;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 13px;
+  color: #c0c1c2;
+  }
+.glucodyn-row .glucodyn-text-note {
+  top: 10px;
+  bottom: auto;
+  }
+.glucodyn-row.typography-row .glucodyn-content {
+  float: none;
+  width: auto;
+  clear: both;
+  }
+.glucodyn-row.typography-row .glucodyn-type-example {
+  position: relative;
+  padding-left: 25%;
+  margin-bottom: 40px;
+  }
+.glucodyn-section-title {
+  margin: 10px 0;
+  font: 600 28px/40px "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+.glucodyn-panel-title {
+  padding-top: 20px;
+  margin: 2px 0 20px;
+  font: bold 23px/40px "Helvetica Neue", Helvetica, Arial, sans-serif;
+  }
+.glucodyn-panel-title small {
+  font-size: inherit;
+  font-weight: 400;
+  color: #798795;
+  }
+.glucodyn-navigation {
+  margin-top: -10px;
+  margin-bottom: -4px;
+  }
+.glucodyn-pager {
+  margin-top: -20px;
+  }
+.glucodyn-tooltips {
+  height: 126px;
+  }
+.glucodyn-tooltips .tooltip {
+  position: relative !important;
+  top: -8px !important;
+  left: -8px !important;
+  }
+.glucodyn-headings {
+  margin-bottom: 12px;
+  }
+.glucodyn-tiles {
+  margin-bottom: 46px;
+  }
+.glucodyn-icons {
+  padding-left: 20px;
+  margin-left: -20px;
+  font-size: 32px;
+  }
+.glucodyn-icons .glucodyn-content {
+  margin: 0 0 0 -35px;
+  }
+.glucodyn-icons .glucodyn-content > span {
+  display: inline-block;
+  width: 24px;
+  margin: 0 0 32px 35px;
+  font-size: 24px;
+  }
+.glucodyn-icons-tooltip {
+  position: absolute;
+  bottom: 0;
+  left: 100%;
+  width: 80px;
+  margin-left: 0 !important;
+  font-size: 12px;
+  color: #c2c8cf;
+  }
+.glucodyn-illustrations .glucodyn-content {
+  padding-top: 20px;
+  margin: 0 0 0 -40px;
+  }
+.glucodyn-illustrations .glucodyn-content:before,
+.glucodyn-illustrations .glucodyn-content:after {
+  display: table;
+  content: " ";
+  }
+.glucodyn-illustrations .glucodyn-content:after {
+  clear: both;
+  }
+.glucodyn-illustrations .glucodyn-content > div {
+  float: left;
+  width: 100px;
+  height: 100px;
+  margin: 0 0 40px 40px;
+  line-height: 100px;
+  text-align: center;
+  }
+.glucodyn-illustrations img {
+  display: inline-block;
+  max-width: 100px;
+  max-height: 100px;
+  vertical-align: middle;
+  }
+.glucodyn-samples {
+  margin-bottom: 46px;
+  }
+.glucodyn-download-section {
+  float: none;
+  padding: 60px 0 90px 20px;
+  margin: 0 auto;
+  text-align: center;
+  }
+.glucodyn-download-section [class*='fui-'] {
+  margin: 3px 0 -3px;
+  }
+.glucodyn-download {
+  width: 190px;
+  height: 190px;
+  padding: 40px 28px 30px 32px;
+  margin: 0 auto 32px;
+  text-align: center;
+  background-color: #ebedef;
+  border-radius: 50%;
+  }
+.glucodyn-download img {
+  width: 82px;
+  height: 104px;
+  }
+.glucodyn-download-text {
+  padding: 20px 0;
+  font-size: 15px;
+  text-align: center;
+  }
+.glucodyn-text-box a:hover {
+  color: #1abc9c;
+  }
+.glucodyn-browser {
+  padding-top: 42px;
+  margin: 0 41px 140px 0;
+  color: #fff;
+  background: #2c3e50 url(../img/demo/browser.png) 0 0 no-repeat;
+  background-size: 659px 42px;
+  border-radius: 0 0 6px 6px;
+  }
+.glucodyn-browser-side {
+  float: left;
+  width: 151px;
+  padding: 22px 20px;
+  }
+.glucodyn-browser-side > h5 {
+  margin-top: 4px;
+  margin-bottom: 3px;
+  font-size: 16px;
+  font-weight: 400;
+  text-transform: none;
+  }
+.glucodyn-browser-side > h6 {
+  margin-top: 3px;
+  font-size: 11px;
+  font-weight: 300;
+  line-height: 18px;
+  text-transform: none;
+
+  -webkit-font-smoothing: subpixel-antialiased;
+  }
+.glucodyn-browser-author {
+  display: block;
+  width: 84px;
+  height: 84px;
+  margin: 0 auto;
+  background: url(../img/demo/browser-author.jpg) center no-repeat;
+  border: 3px solid #fff;
+  border-radius: 50%;
+  }
+.glucodyn-browser-action {
+  padding: 30px 0 12px;
+  }
+.glucodyn-browser-action > .btn {
+  padding: 7px 0 8px 11px !important;
+  text-align: left;
+  border-radius: 3px;
+  }
+.glucodyn-browser-action > .btn > [class^="fui-"] {
+  position: relative;
+  top: 1px;
+  margin-right: 12px;
+  }
+.glucodyn-browser-content {
+  padding: 21px 0 0 20px;
+  overflow: hidden;
+  background-color: #34495e;
+  border-radius: 0 0 6px;
+  }
+.glucodyn-browser-content > img {
+  float: left;
+  width: 146px;
+  margin: 0 15px 20px 0;
+  border: 6px solid #fff;
+  }
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (-moz-min-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 3/2), only screen and (-o-min-device-pixel-ratio: 2/1), only screen and (min--moz-device-pixel-ratio: 1.5), only screen and (min-device-pixel-ratio: 1.5), only screen and (min-device-pixel-ratio: 2) {
+  .logo {
+    background-image: url(../img/demo/logo-mask-2x.png);
+    }
+  .glucodyn-browser {
+    background-image: url(../img/demo/browser-2x.png);
+    }
+  }
+.glucodyn-swatches-row [class*="col"] {
+  float: left;
+  min-height: 1px;
+  }
+.glucodyn-swatches-row .swatches-col {
+  width: 800px;
+  margin-left: -5px;
+  }
+.glucodyn-swatches-row .swatches-desc-col {
+  width: 140px;
+  margin-left: 20px;
+  }
+  
+@media (max-width: 480px) {
+
+  .glucodyn-logo {
+    font-size: 44px;
+  }
+  
+  .col-xs-3 {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .col-xs-4 {
+    width: 100%;
+  }
+   
+  .col-xs-10 {
+    width: 75%;
+  } 
+    
+  #invite_link.col-xs-3 {
+    width: 10%;
+  }
+  
+  #invite_link.pull-left {
+    display:none;
+  }
+  
+  #invite_link img {
+    margin-left: 0px;
+    width: 35px;
+  }
+  
+  .ui-slider {
+    height: 32px;
+    margin-top: 10px;
+  }
+    
+  .ui-slider .ui-slider-handle {
+    height: 40px;
+    width: 40px;
+  }
+  
+  .row h3 {
+    line-height: 1;
+  }
+  
+  #input_history .col-xs-6 {
+    line-height: 1.3;
+  }
+  
+}
+
+@media (min-width: 481px) and (max-width: 991px) {
+    
+  .row.invite_link .col-xs-9 {
+    width: 100%;
+    height: 70px;
+  }
+  .row.invite_link .col-xs-3 {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .col-xs-12 {
+    width: 100%;
+  }
+  
+  .col-xs-3 {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .col-xs-4 {
+    width: 100%;
+  }
+
+  .ui-slider {
+    height: 32px;
+  }
+    
+  .ui-slider .ui-slider-handle {
+    height: 40px;
+    width: 40px;
+  }
+  
+  .row h3 {
+    line-height: 1;
+  }
+    
+}
+
+@media (min-width: 992px) {
+    
+  .row.invite_link .col-xs-9 {
+    width: 70%;
+  }
+  .row.invite_link .col-xs-3 {
+    width: 15%;
+  }
+
+  .col-xs-12 {
+    width: 100%;
+  }
+  .col-xs-6 {
+    width: 50%;
+  }
+  .col-xs-5 {
+    width: 50%;
+  }
+  .col-xs-3 {
+    width: 20%;
+  }
+  .col-xs-2 {
+    width: 10%;
+  }
+  .col-xs-1 {
+    width: 50%;
+  }
+  
+  #input_history.col-xs-6 {
+    width: 100%;
+  }
+  
+  .history_row .col-xs-12 {
+    width: 100%;
+  }
+
+  .history_row .col-xs-6 {
+    width: 100%;
+  }
+    
+}
+
+img.invite {
+  width: 45px;
+}
+
+div#invite_link {
+  margin-left: 10px;
+  line-height: 1;
+  font-weight: 100;
+  cursor: pointer;
+}
+
+div#invite_link.col-xs-3 {
+  padding-top: 20px;
+}
+
+div#invite_link.pull-left {
+  padding-top: 5px;
+}
+
+.btn {
+  font-weight: 100;
+}
+
+.ui-slider {
+  height: 24px;
+}
+  
+.ui-slider .ui-slider-handle {
+  height: 30px;
+  width: 30px;
+}
+
+.ui-slider-segment {
+  display:none;
+}
+
+#chart_container {
+}
+
+#curve_chart {
+}  

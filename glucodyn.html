@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		
+		<!--
+		
+		The MIT License (MIT)
+
+		Copyright (c) 2015 Perceptus.org
+
+		Permission is hereby granted, free of charge, to any person obtaining a copy
+		of this software and associated documentation files (the "Software"), to deal
+		in the Software without restriction, including without limitation the rights
+		to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+		copies of the Software, and to permit persons to whom the Software is
+		furnished to do so, subject to the following conditions:
+
+		The above copyright notice and this permission notice shall be included in all
+		copies or substantial portions of the Software.
+
+		THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+		IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+		FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+		AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+		LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+		OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+		SOFTWARE.
+			
+		-->
+		
+		<!-- 
+				
+		 .88888.  dP                            888888ba                    
+		d8'   `88 88                            88    `8b                   
+		88        88 dP    dP .d8888b. .d8888b. 88     88 dP    dP 88d888b. 
+		88   YP88 88 88    88 88'  `"" 88'  `88 88     88 88    88 88'  `88 
+		Y8.   .88 88 88.  .88 88.  ... 88.  .88 88    .8P 88.  .88 88    88 
+		 `88888'  dP `88888P' `88888P' `88888P' 8888888P  `8888P88 dP    dP 
+		                                                       .88          
+		                                                   d8888P           
+		dP                    888888ba                                                 dP                                                   
+		88                    88    `8b                                                88                                                   
+		88d888b. dP    dP    a88aaaa8P' .d8888b. 88d888b. .d8888b. .d8888b. 88d888b. d8888P dP    dP .d8888b.    .d8888b. 88d888b. .d8888b. 
+		88'  `88 88    88     88        88ooood8 88'  `88 88'  `"" 88ooood8 88'  `88   88   88    88 Y8ooooo.    88'  `88 88'  `88 88'  `88 
+		88.  .88 88.  .88     88        88.  ... 88       88.  ... 88.  ... 88.  .88   88   88.  .88       88 dP 88.  .88 88       88.  .88 
+		88Y8888' `8888P88     dP        `88888P' dP       `88888P' `88888P' 88Y888P'   dP   `88888P' `88888P' 88 `88888P' dP       `8888P88 
+		              .88                                                   88                                                          .88 
+		          d8888P                                                    dP                                                      d8888P
+				
+		Education is crucial in the treatment of complex and dynamic diseases such as T1D. When patients are aware of the elements that affect 
+		variations in their disease, they are able to better understand their situation enabling them to optimize their treatments.
+
+		Accessibility through the primary method of communication in the present: Digital communication. Live data should be accessible when 
+		the patient needs it in the easiest possible way.
+
+		Autonomy is the dream of every patient with T1D. Life does not happen while being in front of a computer or staring at data on your 
+		phone. Most of the times where deviations happen, patients are busy living their lives.
+
+		Gustavo Muñoz ( @bustavo )
+		Kenneth Stack
+		
+		-->
+
+		<!-- FLAT UI -->
+		<!-- Twitter Bootstrap-->
+		<link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" media="screen" title="no title" charset="utf-8">
+		<link rel="stylesheet" href="css/flat-ui.css" type="text/css" media="screen" title="no title" charset="utf-8">
+		<link rel="stylesheet" href="css/glucodyn.css" type="text/css" media="screen" title="no title" charset="utf-8">
+		<!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->
+
+		<!--[if lt IE 9]>
+		<script src="js/html5shiv.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/respond.min.js" type="text/javascript" charset="utf-8"></script>
+		<![endif]-->
+		<!-- FLAT UI END-->
+
+		<!-- Google Charts -->
+		<script src="js/jquery-latest.min.js"></script>
+		<script type="text/javascript" src="https://www.google.com/jsapi?autoload={'modules':[{'name':'visualization','version':'1','packages':['corechart']}]}"></script>
+		<!-- Google Charts END -->
+    
+		<title>GlucoDyn by Perceptus.org</title>
+
+	</head>
+    
+	<body>
+
+		<div class="container">
+
+			<h1 class=".glucodyn-logo">GlucoDyn</h1>
+
+		</div>
+
+		<div class="container" id="chart_container">
+
+			<!-- Google Charts Container -->
+			<div id="curve_chart"></div>
+
+		</div>
+
+		<script src="js/glucodyn/algorithms.js" type="text/javascript" charset="utf-8"></script>
+
+		<br>
+
+		<!-- GlucoDyn Notifications -->
+
+		<div class="container hidden" id="simtime_adjust_container">
+
+			<h1 class="glucodyn-section-title">Important</h1>
+
+			<div class="row">
+				<div class="col-xs-12">
+					A total simulation time of <span id="simtime_recommend_label"></span> minutes is recommended to show more accurate information for entered inputs.
+					<br><br>
+					Glucodyn can adjust the time automatically by pushing the button below:
+					<br><br>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-xs-3">
+					<a href="#new_event_link" class="btn btn-block btn-lg btn-danger" onclick="RecommendedMaxSimTime(1);">Adjust Sim Time</a>
+				</div>
+				<div class="col-xs-3">
+					<a href="#new_event_link" class="btn btn-block btn-lg btn-default" onclick="simtimeadjustrecommendation = 0; RecommendedMaxSimTime(0);">Never Adjust</a>
+				</div>
+				<br>
+				<br>
+			</div>
+
+		</div>
+
+		<!-- GlucoDyn Notifications END -->
+
+		<!-- Glucodyn Statistics -->
+
+		<div class="container hidden" id="statistics_container">
+
+			<h1 class="glucodyn-section-title">Statistics</h1>
+
+			<div class="row">
+
+				<div class="col-xs-2">
+					Avg
+				</div>
+
+				<div class="col-xs-2">
+					Max
+				</div>
+
+				<div class="col-xs-2">
+					Min
+				</div>
+
+				<div class="col-xs-2">
+					SD
+				</div>
+
+			</div>
+
+			<div class="row">
+
+				<div class="col-xs-2">
+					<span id="stats_avg">NA</span> mg/dl
+				</div>
+
+				<div class="col-xs-2">
+					<span id="stats_max">NA</span> mg/dl
+				</div>
+
+				<div class="col-xs-2">
+					<span id="stats_min">NA</span> mg/dl
+				</div>
+
+				<div class="col-xs-2">
+					<span id="stats_std">NA</span> mg/dl
+				</div>
+
+			</div>
+
+			<br>
+
+		</div>
+
+		<!-- Glucodyn Statistics END -->
+
+		<!-- Input History -->
+
+		<div class="container hidden" id="input_history_container">
+
+			<h1 class="glucodyn-section-title">Input History</h1>
+
+			<div class="row">
+
+				<!-- This is where input history gets added -->
+				<div class="col-xs-12" id="input_history">
+
+				</div>
+
+			</div>
+
+			<br>
+
+		</div>
+
+		<!-- Input History END -->
+
+		<!-- Input Area -->
+
+		<div class="container" class="ui-content">
+
+			<h1 class="glucodyn-section-title">Data Input</h1>
+
+			<!-- STEP ONE: ADD NEW EVENT. -->
+
+			<div class="row">
+				<div class="col-xs-3">
+					<a id="add_carbs" href="#new_event_link" class="btn btn-block btn-lg btn-primary" onclick="showCarbsStepTwo();">Carbs</a>
+				</div>
+				<div class="col-xs-3">
+					<a id="add_insulin" href="#new_event_link" class="btn btn-block btn-lg btn-danger" onclick="showInsulinStepTwo();">Insulin</a>
+				</div>
+				<div class="col-xs-3">
+					<a id="settings" href="#new_event_link" class="btn btn-block btn-lg btn-warning" onclick="showUserSettings();">Settings</a>
+				</div>
+			</div>
+
+			<!-- USER SETTINGS -->
+
+			<div class="hidden" id="step_two_settings">
+				<br>
+				<div class="row">
+					<div class="col-xs-12">
+						<h3 class="glucodyn-panel-title">Carb Ratio: <span id="carb_ratio_slider_label">0</span> gr/U</h3>
+						<div id="carb_ratio_slider" class="ui-slider">
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-12">
+						<h3 class="glucodyn-panel-title">Insulin Sensitivity Factor: <span id="carb_sensitivity_slider_label">0</span> (mg/dl)/U</h3>
+						<div id="carb_sensitivity_slider" class="ui-slider">
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-12">
+						<h3 class="glucodyn-panel-title">Insulin Duration: <span id="insulin_duration_slider_label">0</span> hr</h3>
+						<div id="insulin_duration_slider" class="ui-slider">
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-12">
+						<h3 class="glucodyn-panel-title">Initial BG: <span id="initial_bg_slider_label">0</span> mg/dl</h3>
+						<div id="initial_bg_slider" class="ui-slider">
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-12">
+						<h3 class="glucodyn-panel-title">Simulation Duration: <span id="sim_duration_slider_label">0</span> hrs</h3>
+						<div id="sim_duration_slider" class="ui-slider">
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-12">
+						<h3 class="glucodyn-panel-title">Show Statistics</h3>
+						<input type="checkbox" data-toggle="switch" data-on-label="&lt;i class='fui-check'&gt;&lt;/i&gt;" data-off-label="&lt;i class='fui-cross'&gt;&lt;/i&gt;" id="show_statistics" onchange="updateStats($(this).prop('checked'));">
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-12">
+						<h3 class="glucodyn-panel-title">Show Insulin & Carb effect on graph</h3>
+						<input type="checkbox" data-toggle="switch" data-on-label="&lt;i class='fui-check'&gt;&lt;/i&gt;" data-off-label="&lt;i class='fui-cross'&gt;&lt;/i&gt;" id="show_input_effects" onchange="updateInputEffect($(this).prop('checked'));">
+					</div>
+				</div>
+
+				<br>
+				<div class="row">
+					<div class="col-xs-4">
+						<a href="#" class="btn btn-block btn-lg btn-success" onclick="showUserSettings();">Confirm</a>
+					</div>
+				</div>
+
+			</div>
+
+			<!-- STEP TWO: CARBS INPUT -->
+
+			<div class="hidden" id="step_two_carbs">
+				<br>
+				<div class="row">
+					<div class="col-xs-12">
+						<h3 class="glucodyn-panel-title">Carb Amount: <span id="carb_amount_slider_label">0</span>gr</h3>
+						<div id="carb_amount_slider" class="ui-slider">
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-12">
+						<h3 class="glucodyn-panel-title">Carb Input @ Time: <span id="carb_time_slider_label">0</span>min</h3>
+						<div id="carb_time_slider" class="ui-slider">
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-12">
+						<h3 class="glucodyn-panel-title" style="height: 40px;">Carb Type:</h3>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-3">
+						<label class="radio">
+							<input type="radio" name="carb_type" id="carb_type" value="low" data-toggle="radio" class="carb_type custom-radio"><span class="icons"><span class="icon-unchecked"></span><span class="icon-checked"></span></span>
+							Low
+						</label>            
+					</div>
+					<div class="col-xs-3">
+						<label class="radio">
+							<input type="radio" name="carb_type" id="carb_type" value="medium" data-toggle="radio" class="carb_type custom-radio"><span class="icons"><span class="icon-unchecked"></span><span class="icon-checked"></span></span>
+							Med
+						</label>            
+					</div>
+					<div class="col-xs-3">
+						<label class="radio">
+							<input type="radio" name="carb_type" id="carb_type" value="high" data-toggle="radio" class="carb_type custom-radio"><span class="icons"><span class="icon-unchecked"></span><span class="icon-checked"></span></span>
+							High
+						</label>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-xs-12">
+						<h3 class="glucodyn-panel-title">Carb Type Absorption Time: <span id="carb_type_slider_label">0</span>min</h3>
+						<div id="carb_type_slider" class="ui-slider">
+						</div>
+					</div>
+				</div>
+
+				<br>
+				<div class="row">
+					<div class="col-xs-4">
+						<a href="#" class="btn btn-block btn-lg btn-success" onclick="addCarbsToModel();">Confirm</a>
+					</div>
+				</div>
+			</div>
+
+			<!-- STEP TWO: INSULIN INPUT -->
+
+			<div class="hidden" id="step_two_insulin">
+				<br>
+				<div class="row">
+					<div class="col-xs-12">
+						<h3 class="glucodyn-panel-title" style="height: 40px;">Treatment Type:</h3>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-3">
+						<label class="radio">
+							<input type="radio" name="treatment_type" id="treatment_type" value="bolus" data-toggle="radio" class="custom-radio"><span class="icons"><span class="icon-unchecked"></span><span class="icon-checked"></span></span>
+							Bolus
+						</label>            
+					</div>
+					<div class="col-xs-3">
+						<label class="radio">
+							<input type="radio" name="treatment_type" id="treatment_type" value="temp_basal" data-toggle="radio" class="custom-radio"><span class="icons"><span class="icon-unchecked"></span><span class="icon-checked"></span></span>
+							Temp
+						</label>            
+					</div>
+				</div>
+				<div class="row hidden" id="bolus_amount">
+					<div class="col-xs-12">
+						<h3 class="glucodyn-panel-title">Insulin Amount: <span id="bolus_amount_slider_label">0</span> U</h3>
+						<div id="bolus_amount_slider" class="ui-slider">
+						</div>
+					</div>
+				</div>        
+				<div class="row hidden" id="bolus_time">
+					<div class="col-xs-12">
+						<h3 class="glucodyn-panel-title">Bolus Input @ Time: <span id="bolus_time_slider_label">0</span>min</h3>
+						<div id="bolus_time_slider" class="ui-slider">
+						</div>
+					</div>
+				</div>
+				<div class="row hidden" id="temp_basal_amount">
+					<div class="col-xs-12">
+						<h3 class="glucodyn-panel-title">Insulin Amount: <span id="tempbasal_amount_slider_label">0</span> U/min</h3>
+						<div id="tempbasal_amount_slider" class="ui-slider">
+						</div>
+					</div>
+				</div>
+				<div class="row hidden" id="temp_basal_range">
+					<div class="col-xs-12">
+						<h3 class="glucodyn-panel-title">Temp Basal Time Range</h3>
+						<div id="tempbasal_time_slider" class="ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all" aria-disabled="false">
+							<span class="ui-slider-value first">0</span>
+							<span class="ui-slider-value last">0</span>
+						</div>
+					</div>
+				</div>        
+				<br>
+				<div class="row">
+					<div class="col-xs-4">
+						<a href="#" class="btn btn-block btn-lg btn-success" onclick="addInsulinToModel();">Confirm</a>
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+		<!-- Input Area END -->
+
+		<br><br>
+
+		<script src="js/glucodyn/interfase.js" type="text/javascript" charset="utf-8"></script>
+
+		<!-- FLAT UI -->
+		<script src="js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/flat-ui.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/glucodyn/application.js" type="text/javascript" charset="utf-8"></script>
+		<!-- FLAT UI -->
+
+	</body>
+	
+</html>
