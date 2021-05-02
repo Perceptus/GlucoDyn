@@ -1,4 +1,6 @@
 // Function to load the Graph everytime any setting is changed
+google.charts.load('current', {packages: ['corechart']});
+
 function reloadGraphData() {
 
   var userdata = JSON.parse(localStorage["userdata"]);
@@ -31,7 +33,7 @@ function reloadGraphData() {
    }
    
    RecommendedMaxSimTime(0);
-   
+     
    var predata = new google.visualization.DataTable();
    predata.addColumn('number', 'Time'); // Implicit domain label col.
    predata.addColumn('number', 'Resulting Blood Sugar mg/dl'); // Implicit series 1 data col.
